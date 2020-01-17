@@ -9,10 +9,13 @@ export const useLocalStorage = (key, initialValue) => {
       return initialValue;
     }
   });
-      const setValue = newValue => {
-        setStoredValue(newValue);
-        localStorage.setItem(key, JSON.stringify(newValue));
-      };
+
+  const setValue = newValue => {
+    // save state
+    setStoredValue(newValue);
+    // saving to local storage
+    localStorage.setItem(key, JSON.stringify(newValue));
+  };
 
   return [storedValue, setValue];
 };
