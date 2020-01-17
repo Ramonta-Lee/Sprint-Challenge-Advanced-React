@@ -1,23 +1,22 @@
 import React from "react";
-import { useDark } from "../hooks/useDarkMode";
+import  {useDarkMode} from "../hooks/useDarkMode";
 
-const Navbar = () => {
-  const [darkMode, setDarkMode] = useDark(false);
-  const toggleMode = e => {
+const Nav = () => {
+  const [darkMode, setDarkMode] = useDarkMode(false);
+  const toggler = e => {
     e.preventDefault();
     setDarkMode(!darkMode);
   };
+
   return (
-    <nav className="navbar">
-      <h1>Crypto Tracker</h1>
-      <div className="dark-mode__toggle">
-        <div
-          onClick={toggleMode}
-          className={darkMode ? "toggle toggled" : "toggle"}
-        />
-      </div>
-    </nav>
+    <div>
+      <h1>Top Women's Soccer Searches</h1>
+      <button onClick={toggler}>
+        {" "}
+        Turn the lights off? {darkMode ? "dark" : "light"}
+      </button>
+    </div>
   );
 };
 
-export default Navbar;
+export default Nav;

@@ -9,10 +9,10 @@ export const useLocalStorage = (key, initialValue) => {
       return initialValue;
     }
   });
+      const setValue = newValue => {
+        setStoredValue(newValue);
+        localStorage.setItem(key, JSON.stringify(newValue));
+      };
 
-  const setValue = newValue => {
-    setStoredValue(newValue);
-    localStorage.setItem(key, JSON.stringify(newValue));
-  };
   return [storedValue, setValue];
 };
